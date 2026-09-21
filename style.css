@@ -8,6 +8,7 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
     background: #080808;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
@@ -17,7 +18,8 @@ body {
 /* PORTADA */
 
 .hero {
-    height: 80vh;
+    width: 100%;
+    height: 100vh;
     min-height: 500px;
 
     display: flex;
@@ -29,57 +31,76 @@ body {
     background: #080808;
 }
 
-
 .hero-text {
     padding: 20px;
 }
 
 
-.small {
-    margin: 0 0 25px;
+/* PHOTOGRAPHY */
 
+.small {
+    margin: 0 0 22px;
+
+    color: #888888;
+
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     letter-spacing: 7px;
-
-    color: #777;
 }
+
+
+/* FOTOJAVIANDO */
 
 h1 {
     margin: 0;
-    color: red !important;
-    font-family: Georgia, serif !important;
-    font-size: 100px !important;
-    letter-spacing: 5px;
+
+    color: #ffffff;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(70px, 15vw, 150px);
+
+    font-weight: 400;
+
+    letter-spacing: 10px;
+
+    text-transform: uppercase;
 }
 
+
+/* TRAVEL · WILDLIFE · NATURE */
+
 .subtitle {
-    margin-top: 25px;
+    margin: 25px 0 0;
+
+    color: #777777;
+
+    font-family: Arial, Helvetica, sans-serif;
 
     font-size: 11px;
-    letter-spacing: 5px;
 
-    color: #777;
+    letter-spacing: 5px;
 }
 
 
 /* SEPARADOR */
 
 .intro {
-    padding: 60px 20px;
+    padding: 65px 20px;
 
     text-align: center;
 
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
 }
-
 
 .intro p {
     margin: 0;
 
-    color: #888;
+    color: #888888;
 
     font-size: 12px;
+
     letter-spacing: 4px;
 }
 
@@ -87,18 +108,22 @@ h1 {
 /* PAISES */
 
 .countries {
+    width: 100%;
     max-width: 1200px;
 
-    margin: auto;
+    margin: 0 auto;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
 
     gap: 1px;
 
-    background: #333;
+    background: #333333;
 }
 
+
+/* TARJETAS */
 
 .country {
     height: 400px;
@@ -108,37 +133,63 @@ h1 {
 
     padding: 35px;
 
-    background: #111;
+    background: #111111;
 
-    color: white;
+    color: #ffffff;
+
     text-decoration: none;
 
-    transition: background .3s;
+    transition: background 0.3s ease;
 }
-
 
 .country:hover {
-    background: #181818;
+    background: #191919;
 }
 
+
+/* NOMBRES DE LOS PAISES */
 
 .country h2 {
     margin: 0 0 10px;
 
-    font-size: 28px;
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 24px;
+
     font-weight: 400;
 
-    letter-spacing: 5px;
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
 }
 
+
+/* CIUDADES */
 
 .country p {
     margin: 0;
 
-    color: #777;
+    color: #777777;
 
-    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+
     letter-spacing: 1px;
+}
+
+
+/* ENLACES */
+
+a,
+a:visited,
+a:hover,
+a:active {
+    color: #ffffff;
+
+    text-decoration: none;
 }
 
 
@@ -149,25 +200,36 @@ footer {
 
     text-align: center;
 
-    color: #555;
+    color: #555555;
 
     font-size: 10px;
+
     letter-spacing: 3px;
 }
 
 
-/* MÓVIL */
+/* MOVIL */
 
 @media (max-width: 700px) {
 
     .hero {
-        height: 70vh;
+        height: 100vh;
         min-height: 450px;
     }
 
     h1 {
-        font-size: 42px;
-        letter-spacing: 6px;
+        font-size: 55px;
+        letter-spacing: 5px;
+    }
+
+    .small {
+        font-size: 10px;
+        letter-spacing: 5px;
+    }
+
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 3px;
     }
 
     .countries {
@@ -177,10 +239,9 @@ footer {
     .country {
         height: 280px;
     }
-    a,
-a:visited,
-a:hover,
-a:active {
-    color: white;
-    text-decoration: none;
+
+    .country h2 {
+        font-size: 22px;
+        letter-spacing: 5px;
+    }
 }
