@@ -180,5 +180,12 @@ footer {
     .country {
         height: 280px;
     }
+    a,
+a:visited,
+a:hover,
+a:active {
+    color: white;
+    text-decoration: none;
+}
 
 }
