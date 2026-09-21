@@ -243,11 +243,11 @@ footer {
     }
 }
     .country-montenegro {
-    background-image: url("Montenegro1.jpg");
+    background-image: url("z.jpeg");
     background-size: cover;
     background-position: center;
     }
 .country-montenegro {
-    background: url("./Montenegro1.jpg") center center / cover no-repeat !important;
+    background: url("./z.jpeg") center center / cover no-repeat !important;
 }
 }
