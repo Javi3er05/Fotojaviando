@@ -241,9 +241,9 @@ footer {
         font-size: 22px;
         letter-spacing: 5px;
     }
+}
     .country-montenegro {
     background-image: url("Montenegro1.jpg");
     background-size: cover;
     background-position: center;
     }
-}
