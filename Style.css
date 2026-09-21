@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 90px 20px 60px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 42px;
+    letter-spacing: 8px;
+    margin: 0;
+}
+
+header p {
+    color: #aaa;
+    letter-spacing: 5px;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.lugares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.lugar {
+    padding: 70px 10px;
+    border: 1px solid #444;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+.lugar:hover {
+    background: #222;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .lugares {
+        grid-template-columns: 1fr;
+    }
+}
