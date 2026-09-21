@@ -46,14 +46,11 @@ body {
 
 h1 {
     margin: 0;
-
-    font-family: "Cormorant Garamond", serif;
+    font-family: Georgia, serif;
     font-size: clamp(65px, 14vw, 130px);
     font-weight: 400;
-
     letter-spacing: 8px;
 }
-
 
 .subtitle {
     margin-top: 25px;
