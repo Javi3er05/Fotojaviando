@@ -247,3 +247,7 @@ footer {
     background-size: cover;
     background-position: center;
     }
+.country-montenegro {
+    background: url("./Montenegro1.jpg") center center / cover no-repeat !important;
+}
+}
