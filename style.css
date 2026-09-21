@@ -2,65 +2,183 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    background: #111;
-    color: white;
-    font-family: Arial, sans-serif;
+    background: #080808;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
-    padding: 90px 20px 60px;
+
+/* PORTADA */
+
+.hero {
+    height: 80vh;
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
+
+    background: #080808;
 }
 
-h1 {
-    font-size: 42px;
-    letter-spacing: 8px;
-    margin: 0;
-}
 
-header p {
-    color: #aaa;
-    letter-spacing: 5px;
-}
-
-main {
-    max-width: 900px;
-    margin: auto;
+.hero-text {
     padding: 20px;
 }
 
-h2 {
-    font-weight: normal;
-    margin-bottom: 30px;
+
+.small {
+    margin: 0 0 25px;
+
+    font-size: 12px;
+    letter-spacing: 7px;
+
+    color: #777;
 }
 
-.lugares {
+
+h1 {
+    margin: 0;
+
+    font-size: clamp(45px, 10vw, 90px);
+    font-weight: 400;
+
+    letter-spacing: 10px;
+}
+
+
+.subtitle {
+    margin-top: 25px;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color: #777;
+}
+
+
+/* SEPARADOR */
+
+.intro {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+
+.intro p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+
+/* PAISES */
+
+.countries {
+    max-width: 1200px;
+
+    margin: auto;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+
+    gap: 1px;
+
+    background: #333;
 }
 
-.lugar {
-    padding: 70px 10px;
-    border: 1px solid #444;
+
+.country {
+    height: 400px;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 35px;
+
+    background: #111;
+
     color: white;
     text-decoration: none;
-    font-size: 20px;
+
+    transition: background .3s;
+}
+
+
+.country:hover {
+    background: #181818;
+}
+
+
+.country h2 {
+    margin: 0 0 10px;
+
+    font-size: 28px;
+    font-weight: 400;
+
+    letter-spacing: 5px;
+}
+
+
+.country p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 70px 20px;
+
     text-align: center;
+
+    color: #555;
+
+    font-size: 10px;
+    letter-spacing: 3px;
 }
 
-.lugar:hover {
-    background: #222;
-}
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 30px;
+/* MÓVIL */
+
+@media (max-width: 700px) {
+
+    .hero {
+        height: 70vh;
+        min-height: 450px;
     }
 
-    .lugares {
+    h1 {
+        font-size: 42px;
+        letter-spacing: 6px;
+    }
+
+    .countries {
         grid-template-columns: 1fr;
     }
+
+    .country {
+        height: 280px;
+    }
+
 }
