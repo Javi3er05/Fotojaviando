@@ -129,7 +129,10 @@ h1 {
     height: 400px;
 
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
 
     padding: 35px;
 
@@ -140,6 +143,7 @@ h1 {
     text-decoration: none;
 
     transition: background 0.3s ease;
+}
 }
 
 .country:hover {
