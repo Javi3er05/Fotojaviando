@@ -46,10 +46,10 @@ body {
 
 h1 {
     margin: 0;
-    font-family: Georgia, serif;
-    font-size: clamp(65px, 14vw, 130px);
-    font-weight: 400;
-    letter-spacing: 8px;
+    color: red !important;
+    font-family: Georgia, serif !important;
+    font-size: 100px !important;
+    letter-spacing: 5px;
 }
 
 .subtitle {
