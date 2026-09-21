@@ -251,10 +251,11 @@ footer {
     background: url("./z.jpeg") center center / cover no-repeat !important;
 }
 .gallery {
-    columns: 3 300px;
-    column-gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px;
     padding: 30px;
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -262,17 +263,6 @@ footer {
     width: 100%;
     height: auto;
     display: block;
-    margin-bottom: 15px;
-    break-inside: avoid;
-}
-@media (max-width: 700px) {
-    .gallery {
-        columns: 1;
-        padding: 15px;
-    }
-
-    .gallery img {
-        margin-bottom: 15px;
-    }
+    object-fit: contain;
 }
 }
