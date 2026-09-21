@@ -127,21 +127,14 @@ h1 {
 
 .country {
     height: 400px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     padding: 35px;
-
     background: #111111;
-
     color: #ffffff;
-
     text-decoration: none;
-
     transition: background 0.3s ease;
 }
 }
