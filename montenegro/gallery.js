@@ -1,47 +1,91 @@
-document.addEventListener("DOMContentLoaded", function () {
+const images = document.querySelectorAll(".gallery img");
 
-    const gallery = document.querySelector(".gallery");
+let currentIndex = 0;
 
-    if (!gallery) return;
+const lightbox = document.createElement("div");
+lightbox.className = "lightbox";
 
-    const images = gallery.querySelectorAll("img");
+lightbox.innerHTML = `
+    <button class="lightbox-close">×</button>
+    <button class="lightbox-prev">‹</button>
+    <img class="lightbox-image" src="" alt="">
+    <button class="lightbox-next">›</button>
+`;
 
-    images.forEach(function (img) {
+document.body.appendChild(lightbox);
 
-        img.addEventListener("click", function () {
+const lightboxImage = lightbox.querySelector(".lightbox-image");
+const closeButton = lightbox.querySelector(".lightbox-close");
+const prevButton = lightbox.querySelector(".lightbox-prev");
+const nextButton = lightbox.querySelector(".lightbox-next");
 
-            const viewer = document.createElement("div");
+function showImage(index) {
+    currentIndex = (index + images.length) % images.length;
 
-            viewer.style.position = "fixed";
-            viewer.style.top = "0";
-            viewer.style.left = "0";
-            viewer.style.width = "100%";
-            viewer.style.height = "100%";
-            viewer.style.background = "rgba(0,0,0,0.95)";
-            viewer.style.display = "flex";
-            viewer.style.alignItems = "center";
-            viewer.style.justifyContent = "center";
-            viewer.style.zIndex = "9999";
-            viewer.style.cursor = "pointer";
+    lightboxImage.src = images[currentIndex].src;
+    lightboxImage.alt = images[currentIndex].alt;
 
-            const bigImage = document.createElement("img");
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
 
-            bigImage.src = img.src;
+function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+}
 
-            bigImage.style.maxWidth = "95%";
-            bigImage.style.maxHeight = "95%";
-            bigImage.style.objectFit = "contain";
+function previousImage() {
+    showImage(currentIndex - 1);
+}
 
-            viewer.appendChild(bigImage);
+function nextImage() {
+    showImage(currentIndex + 1);
+}
 
-            document.body.appendChild(viewer);
-
-            viewer.addEventListener("click", function () {
-                viewer.remove();
-            });
-
-        });
-
+images.forEach((image, index) => {
+    image.addEventListener("click", () => {
+        showImage(index);
     });
+});
 
+closeButton.addEventListener("click", closeLightbox);
+prevButton.addEventListener("click", previousImage);
+nextButton.addEventListener("click", nextImage);
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (e.key === "ArrowLeft") previousImage();
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "Escape") closeLightbox();
+});
+
+
+/* SWIPE EN MÓVIL */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+lightboxImage.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+lightboxImage.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+
+    const difference = touchStartX - touchEndX;
+
+    if (Math.abs(difference) < 50) return;
+
+    if (difference > 0) {
+        nextImage();
+    } else {
+        previousImage();
+    }
 });
