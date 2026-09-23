@@ -422,4 +422,50 @@ footer {
 .navbar nav a:hover {
     opacity: 0.6;
 }
+/* SOBRE MÍ */
+
+.sobre-mi {
+    min-height: 100vh;
+    padding: 140px 8% 80px;
+    box-sizing: border-box;
+}
+
+.intro-sobre-mi {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    align-items: center;
+}
+
+.imagen-sobre-mi img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}
+
+.texto-sobre-mi {
+    max-width: 500px;
+}
+
+.etiqueta-sobre-mi {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.texto-sobre-mi h1 {
+    font-size: 64px;
+    font-weight: 400;
+    margin: 0 0 35px;
+}
+
+.texto-sobre-mi p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
 }
