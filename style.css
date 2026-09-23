@@ -468,4 +468,36 @@ footer {
     line-height: 1.8;
     margin-bottom: 25px;
 }
+/* ANIMACIÓN SOBRE MÍ */
+
+.imagen-sobre-mi {
+    opacity: 0;
+    animation: aparecer 1.2s ease forwards;
+}
+
+.texto-sobre-mi {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: aparecer-texto 1s ease 0.3s forwards;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes aparecer-texto {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 }
