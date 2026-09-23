@@ -408,6 +408,7 @@ footer {
 .navbar nav {
     display: flex;
     gap: 30px;
+    margin-left: auto;
 }
 
 .navbar nav a {
