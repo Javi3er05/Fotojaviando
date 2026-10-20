@@ -417,8 +417,9 @@ footer {
 
     z-index: 1000;
 
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(24, 24, 24, 0.92);
     backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .logo {
@@ -432,7 +433,9 @@ footer {
 .navbar nav {
     display: flex;
     gap: 30px;
-    margin-left: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .navbar nav a {
@@ -446,6 +449,34 @@ footer {
 .navbar nav a:hover {
     opacity: 0.6;
 }
+
+.instagram-link {
+    position: absolute;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-link:hover {
+    opacity: 0.6;
+}
+
+.instagram-link svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+}
+
+.instagram-link .instagram-dot {
+    fill: currentColor;
+    stroke: none;
+}
+
 /* SOBRE MÍ */
 
 .sobre-mi {
@@ -509,6 +540,8 @@ footer {
     }
 
     .navbar nav {
+        position: static;
+        transform: none;
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px 14px;
@@ -518,6 +551,16 @@ footer {
     .navbar nav a {
         font-size: 10px;
         letter-spacing: 1px;
+    }
+
+    .instagram-link {
+        top: 14px;
+        right: 16px;
+    }
+
+    .instagram-link svg {
+        width: 19px;
+        height: 19px;
     }
 
     .sobre-mi {
