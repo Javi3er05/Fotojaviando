@@ -492,6 +492,39 @@ footer {
     line-height: 1.8;
     margin-bottom: 25px;
 }
+
+@media (max-width: 700px) {
+    .navbar {
+        position: sticky;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .logo {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 14px;
+        margin-left: 0;
+    }
+
+    .navbar nav a {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .sobre-mi {
+        padding-top: 60px;
+    }
+}
+
 /* ANIMACIÓN SOBRE MÍ */
 
 .imagen-sobre-mi {
