@@ -135,12 +135,11 @@ h1 {
     background: #111111;
     color: #ffffff;
     text-decoration: none;
-    transition: background 0.3s ease;
-}
+    transition: filter 0.3s ease;
 }
 
 .country:hover {
-    background: #191919;
+    filter: brightness(0.8);
 }
 
 
@@ -242,13 +241,18 @@ footer {
         letter-spacing: 5px;
     }
 }
-    .country-montenegro {
-    background-image: url("montenegro/mn6.webp");
-    background-size: cover;
-    background-position: center;
-    }
 .country-montenegro {
-    background: url("montenegro/mn6") center center / cover no-repeat !important
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("montenegro/mn6.webp") center / cover no-repeat;
+    background-size: auto, 110% auto;
+}
+
+.country-marruecos {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("marruecos/marruecos1.webp") center / cover no-repeat;
+    background-size: auto, 110% auto;
 }
 /* =========================
    GALERÍA MONTENEGRO
