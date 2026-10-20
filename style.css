@@ -274,6 +274,17 @@ footer {
     opacity: 0.85;
 }
 
+.gallery-masonry {
+    display: block;
+    columns: 4;
+    column-gap: 5px;
+}
+
+.gallery-masonry img {
+    break-inside: avoid;
+    margin-bottom: 5px;
+}
+
 
 /* =========================
    MÓVIL
@@ -284,6 +295,15 @@ footer {
     .gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 4px;
+    }
+
+    .gallery-masonry {
+        columns: 2;
+        column-gap: 4px;
+    }
+
+    .gallery-masonry img {
+        margin-bottom: 4px;
     }
 
 }
