@@ -36,14 +36,57 @@
 </header>
 
 
-    <main>
+    <main class="home-main">
+        <section class="featured" aria-label="Fotografías destacadas" aria-roledescription="carrusel">
+            <div class="featured-slides">
+                <article class="featured-slide is-active" aria-hidden="false">
+                    <img src="montenegro/mn6.webp" alt="Fotografía destacada de Montenegro" fetchpriority="high">
+                    <div class="featured-caption">
+                        <p class="featured-kicker">FOTOGRAFÍA DESTACADA · 01</p>
+                        <h1>Montenegro</h1>
+                        <a href="montenegro/montenegro.html">VER FOTOS <span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+
+                <article class="featured-slide" aria-hidden="true">
+                    <img src="marruecos/marruecos1.webp" alt="Fotografía destacada de Marruecos" loading="lazy">
+                    <div class="featured-caption">
+                        <p class="featured-kicker">FOTOGRAFÍA DESTACADA · 02</p>
+                        <h2>Marruecos</h2>
+                        <a href="marruecos/marruecos.html" tabindex="-1">VER FOTOS <span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+
+                <article class="featured-slide" aria-hidden="true">
+                    <img src="rusia/rusia12.webp" alt="Fotografía destacada de Rusia" loading="lazy">
+                    <div class="featured-caption">
+                        <p class="featured-kicker">FOTOGRAFÍA DESTACADA · 03</p>
+                        <h2>Rusia</h2>
+                        <a href="rusia/rusia.html" tabindex="-1">VER FOTOS <span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+            </div>
+
+            <button class="featured-arrow featured-prev" type="button" aria-label="Fotografía anterior">‹</button>
+            <button class="featured-arrow featured-next" type="button" aria-label="Fotografía siguiente">›</button>
+
+            <div class="featured-footer">
+                <span class="featured-count" aria-live="polite">01 / 03</span>
+                <div class="featured-dots" aria-label="Elegir fotografía destacada">
+                    <button class="is-active" type="button" aria-label="Mostrar fotografía 1 de 3" aria-current="true"></button>
+                    <button type="button" aria-label="Mostrar fotografía 2 de 3" aria-current="false"></button>
+                    <button type="button" aria-label="Mostrar fotografía 3 de 3" aria-current="false"></button>
+                </div>
+                <span class="featured-hint">DESLIZA PARA EXPLORAR</span>
+            </div>
+        </section>
 
         <section class="intro">
             <p>Explora mis fotografías</p>
         </section>
 
 
-        <section class="countries">
+        <section class="countries" id="countries">
 
     <a href="montenegro/montenegro.html" class="country country-montenegro">
     <div>
@@ -53,6 +96,11 @@
             <a href="marruecos/marruecos.html" class="country country-marruecos">
     <div>
         <h2>MARRUECOS</h2>
+    </div>
+    </a>
+            <a href="rusia/rusia.html" class="country country-rusia">
+    <div>
+        <h2>RUSIA</h2>
     </div>
     </a>
 
@@ -65,6 +113,6 @@
         <p>© 2026 FotoJaviando</p>
     </footer>
 
+    <script src="featured.js"></script>
 </body>
-
 </html>
