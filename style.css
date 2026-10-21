@@ -44,7 +44,7 @@ body {
     color: #888888;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: clamp(18px, 2vw, 24px);
     letter-spacing: 7px;
 }
 
@@ -78,7 +78,7 @@ h1 {
     margin-bottom: 16px;
     color: #a0a0a0;
     font-size: clamp(12px, 1.2vw, 14px);
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.3em;
     text-decoration: underline;
     text-decoration-color: #ffffff;
@@ -274,7 +274,7 @@ h1 {
     background: rgba(0, 0, 0, 0.18);
     color: #ffffff;
     cursor: pointer;
-    font-size: 30px;
+    font-size: clamp(56px, 7vw, 88px);
     font-weight: 200;
     line-height: 1;
     transition: background 200ms ease;
@@ -346,6 +346,117 @@ h1 {
     background: #ffffff;
 }
 
+.photo-selection {
+    padding: clamp(54px, 8vw, 96px) clamp(22px, 7vw, 100px);
+    background: #0b0b0b;
+}
+
+.photo-selection-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1440px;
+    margin: 0 auto 28px;
+}
+
+.photo-selection-kicker {
+    margin: 0 0 12px;
+    color: #888888;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+}
+
+.photo-selection-heading h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400;
+}
+
+.photo-selection-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.photo-selection-controls button {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    padding: 0 0 4px;
+    place-items: center;
+    border: 1px solid #555555;
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 28px;
+    line-height: 1;
+    transition: background 200ms ease, opacity 200ms ease;
+}
+
+.photo-selection-controls button:hover:not(:disabled) {
+    background: #252525;
+}
+
+.photo-selection-controls button:disabled {
+    cursor: default;
+    opacity: 0.35;
+}
+
+.photo-selection-track {
+    display: flex;
+    gap: 18px;
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.photo-selection-track::-webkit-scrollbar {
+    display: none;
+}
+
+.photo-selection-card {
+    position: relative;
+    flex: 0 0 calc((100% - 36px) / 3);
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #171717;
+    scroll-snap-align: start;
+}
+
+.photo-selection-card::after {
+    position: absolute;
+    inset: 45% 0 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+    content: "";
+}
+
+.photo-selection-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 450ms ease;
+}
+
+.photo-selection-card:hover img {
+    transform: scale(1.04);
+}
+
+.photo-selection-card span {
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    left: 22px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+}
+
 @media (max-width: 700px) {
     .home-main {
         padding-top: 0;
@@ -411,6 +522,40 @@ h1 {
     .featured-dots {
         gap: 4px;
     }
+
+    .photo-selection {
+        padding: 52px 20px;
+    }
+
+    .photo-selection-heading {
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .photo-selection-controls {
+        gap: 6px;
+    }
+
+    .photo-selection-controls button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .photo-selection-track {
+        gap: 12px;
+        margin-right: -20px;
+        padding-right: 20px;
+    }
+
+    .photo-selection-card {
+        flex-basis: 82%;
+        aspect-ratio: 5 / 4;
+    }
+
+    .photo-selection-card span {
+        bottom: 16px;
+        left: 16px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -418,6 +563,12 @@ h1 {
     .featured-caption a,
     .featured-arrow,
     .featured-dots button::after {
+        transition: none;
+    }
+
+    .photo-selection-track,
+    .photo-selection-card img {
+        scroll-behavior: auto;
         transition: none;
     }
 }
@@ -428,6 +579,7 @@ h1 {
 .countries {
     width: 100%;
     max-width: 1200px;
+    scroll-margin-top: 90px;
 
     margin: 0 auto;
 
@@ -466,13 +618,13 @@ h1 {
 .country h2 {
     margin: 0 0 10px;
 
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.9);
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Cormorant Garamond", Georgia, serif;
 
     font-size: 30px;
 
-    font-weight: 400;
+    font-weight: 700;
 
     letter-spacing: 2px;
 
@@ -509,16 +661,130 @@ a:active {
 
 /* FOOTER */
 
-footer {
-    padding: 70px 20px;
-
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    padding: 62px 24px 28px;
+    border-top: 1px solid #222222;
+    background: #0b0b0b;
     text-align: center;
+}
 
-    color: #555555;
+.footer-brand {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(27px, 4vw, 38px);
+    letter-spacing: 0.18em;
+}
 
+.footer-tagline,
+.footer-copyright {
+    margin: 0;
+    color: #858585;
     font-size: 10px;
+    letter-spacing: 0.2em;
+}
 
-    letter-spacing: 3px;
+.footer-tagline {
+    margin-top: -12px;
+}
+
+.footer-tagline span {
+    padding: 0 5px;
+    color: #ffffff;
+}
+
+.footer-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin: 8px 0;
+}
+
+.footer-gallery-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+}
+
+.footer-gallery-links a {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    transition: opacity 0.2s ease;
+}
+
+.footer-gallery-links a:hover,
+.footer-instagram:hover,
+.footer-brand:hover {
+    opacity: 0.65;
+}
+
+.footer-instagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-instagram svg {
+    display: block;
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+}
+
+.footer-instagram .instagram-dot {
+    fill: currentColor;
+    stroke: none;
+}
+
+.footer-copyright {
+    margin-top: 12px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+}
+
+.contacto-page {
+    display: grid;
+    min-height: 55vh;
+    place-items: center;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.contacto-content {
+    max-width: 560px;
+}
+
+.contacto-content > p:first-child {
+    color: #999999;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+.contacto-content h1 {
+    margin: 18px 0;
+    font-size: clamp(42px, 8vw, 72px);
+    letter-spacing: 0.12em;
+}
+
+.contacto-content > p:last-of-type {
+    color: #b5b5b5;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.contacto-instagram {
+    display: inline-block;
+    margin-top: 24px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ffffff;
+    font-size: 11px;
+    letter-spacing: 0.16em;
 }
 
 
@@ -555,7 +821,7 @@ footer {
     }
 
     .country h2 {
-        font-size: 22px;
+        font-size: clamp(38px, 10vw, 52px);
         letter-spacing: 5px;
     }
 }
@@ -751,8 +1017,9 @@ footer {
 .logo {
     color: white;
     text-decoration: none;
+    font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 3px;
 }
 
@@ -770,6 +1037,66 @@ footer {
     font-size: 13px;
     letter-spacing: 1.5px;
     transition: opacity 0.3s ease;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown summary {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    list-style: none;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav-dropdown summary::after {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 0 3px 7px;
+    transform: rotate(45deg);
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    content: "";
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    display: none;
+    min-width: 150px;
+    padding: 8px 0;
+    transform: translateX(-50%);
+    border: 1px solid #333333;
+    background: rgba(20, 20, 20, 0.98);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown[open] .nav-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 12px 18px;
+    color: #ffffff;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus-visible {
+    background: #333333;
 }
 
 .navbar nav a:hover {
@@ -856,8 +1183,8 @@ footer {
         height: auto;
         flex-direction: column;
         justify-content: center;
-        gap: 12px;
-        padding: 14px 16px;
+        gap: 10px;
+        padding: 12px 10px;
     }
 
     .logo {
@@ -868,15 +1195,31 @@ footer {
     .navbar nav {
         position: static;
         transform: none;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 8px 14px;
+        gap: clamp(8px, 3vw, 14px);
         margin-left: 0;
+        white-space: nowrap;
     }
 
     .navbar nav a {
+        font-size: clamp(8px, 2.4vw, 10px);
+        letter-spacing: 0.5px;
+    }
+
+    .nav-dropdown summary {
+        font-size: clamp(8px, 2.4vw, 10px);
+        letter-spacing: 0.5px;
+    }
+
+    .nav-dropdown-menu {
+        left: 0;
+        transform: none;
+    }
+
+    .nav-dropdown-menu a {
+        padding: 12px 16px;
         font-size: 10px;
-        letter-spacing: 1px;
     }
 
     .instagram-link {
@@ -1098,5 +1441,61 @@ footer {
     .tienda-enlace span,
     .tienda-consulta a {
         transition: none;
+    }
+}
+
+/* FAUNA */
+
+.fauna-page {
+    min-height: 100vh;
+    padding: 180px 24px 80px;
+}
+
+.fauna-intro {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fauna-intro .fauna-eyebrow {
+    margin: 0 0 18px;
+    color: #a0a0a0;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+}
+
+.fauna-intro h1 {
+    font-size: clamp(52px, 8vw, 92px);
+    letter-spacing: 0.04em;
+}
+
+.fauna-intro > p:last-of-type {
+    margin: 24px auto 30px;
+    color: #b8b8b8;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.fauna-contacto {
+    display: inline-block;
+    padding: 14px 20px;
+    border: 1px solid #777777;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+}
+
+.fauna-contacto:hover {
+    background: #ffffff;
+    color: #080808;
+}
+
+@media (max-width: 700px) {
+    .fauna-page {
+        padding: 60px 20px;
+    }
+
+    .fauna-intro > p:last-of-type {
+        font-size: 14px;
     }
 }
